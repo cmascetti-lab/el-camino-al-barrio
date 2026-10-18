@@ -2,7 +2,7 @@
 const path = require('path');
 const { cargarPreguntas } = require('./preguntas');
 
-const r = cargarPreguntas(path.join(__dirname, '..', 'preguntas.yaml'));
+const r = cargarPreguntas(path.join(__dirname, 'preguntas.yaml'));
 if (r.errores.length) {
   console.error('\n❌ preguntas.yaml tiene errores:\n');
   r.errores.forEach(e => console.error('  • ' + e));

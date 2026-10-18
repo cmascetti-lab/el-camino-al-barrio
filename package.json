@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "revisar": "node src/revisar.js"
+    "revisar": "node revisar.js"
   },
   "engines": { "node": ">=18" },
   "dependencies": {

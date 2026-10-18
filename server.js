@@ -3,8 +3,8 @@ const http = require('http');
 const express = require('express');
 const { Server } = require('socket.io');
 const QRCode = require('qrcode');
-const { cargarPreguntas } = require('./src/preguntas');
-const Juego = require('./src/juego');
+const { cargarPreguntas } = require('./preguntas');
+const Juego = require('./juego');
 
 const datos = cargarPreguntas(path.join(__dirname, 'preguntas.yaml'));
 if (datos.errores.length) {
@@ -20,11 +20,14 @@ app.set('trust proxy', true);
 const server = http.createServer(app);
 const io = new Server(server);
 
-app.use(express.static(path.join(__dirname, 'public')));
+// Archivos de las pantallas (todos sueltos en la carpeta principal)
+const PUBLICOS = ['index.html', 'proyector.html', 'estilo.css', 'proyector.css', 'jugar.css', 'tablero.js', 'proyector.js', 'jugar.js', 'icono.svg'];
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+app.get('/:archivo', (req, res, next) => PUBLICOS.includes(req.params.archivo) ? res.sendFile(path.join(__dirname, req.params.archivo)) : next());
 app.use('/fuentes/fredoka', express.static(path.join(__dirname, 'node_modules/@fontsource/fredoka-one/files')));
 app.use('/fuentes/montserrat', express.static(path.join(__dirname, 'node_modules/@fontsource/montserrat/files')));
 app.get('/salud', (req, res) => res.send('ok'));
-app.get('/proyector', (req, res) => res.sendFile(path.join(__dirname, 'public/proyector.html')));
+app.get('/proyector', (req, res) => res.sendFile(path.join(__dirname, 'proyector.html')));
 app.get('/qr.svg', async (req, res) => {
   const url = `${req.protocol}://${req.get('host')}/`;
   const svg = await QRCode.toString(url, { type: 'svg', margin: 1, color: { dark: '#231837', light: '#ffffff' } });
