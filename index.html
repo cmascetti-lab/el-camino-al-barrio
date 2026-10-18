@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0092DD">
+<title>El camino al barrio</title>
+<link rel="icon" href="/icono.svg">
+<link rel="stylesheet" href="/estilo.css">
+<link rel="stylesheet" href="/jugar.css">
+</head>
+<body>
+<div class="app" id="app">
+  <header class="barra" id="barra"></header>
+  <main id="vista"></main>
+  <div class="pausa oculto" id="pausa"><div>⏸<b>Pausa</b><span>Esperen a la facilitadora</span></div></div>
+  <div class="sin-conexion oculto" id="sinConexion">Reconectando…</div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/jugar.js"></script>
+</body>
+</html>

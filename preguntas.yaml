@@ -1,0 +1,378 @@
+# ============================================================
+#  EL CAMINO AL BARRIO · Preguntas del juego
+# ============================================================
+#
+#  Este es el único archivo que hay que tocar para cambiar el juego.
+#
+#  CÓMO EDITARLO DESDE GITHUB
+#   1. Abrí este archivo en github.com y tocá el lápiz (Edit).
+#   2. Cambiá lo que quieras y tocá "Commit changes".
+#   3. Railway vuelve a publicar el juego solo en un par de minutos.
+#   Si te equivocaste en algo, en GitHub aparece una ❌ roja al lado del
+#   cambio: entrá ahí y te dice en qué pregunta está el error.
+#
+#  REGLAS PARA NO ROMPERLO
+#   • Respetá los espacios del principio de cada línea (la sangría).
+#   • Cada pregunta empieza con "- pregunta:".
+#   • Entre 2 y 4 opciones por pregunta.
+#   • "correcta" es el NÚMERO de la opción correcta: 1 = la primera.
+#   • Si un texto tiene dos puntos ":" o comillas, ponelo entero entre
+#     comillas simples, así: 'texto: con dos puntos'.
+#   • Las líneas que empiezan con # son notas y el juego las ignora.
+#
+#  CÓMO FUNCIONA
+#   • Cada casillero tiene varias preguntas. En cada ronda le toca una
+#     al azar, tratando de no repetir. Si un grupo falla, se queda en
+#     el casillero y la ronda siguiente recibe otra pregunta de ahí.
+#   • Si varios grupos están en el mismo casillero, reciben la misma
+#     pregunta y en el proyector se revelan juntos, con barras.
+#   • Grupos impares van por el carril de la mesa; pares, por el de la casa.
+#   • Para agregar una pregunta, copiá un bloque entero (desde
+#     "- pregunta:" hasta "para_decir:") y pegalo debajo.
+# ============================================================
+
+ajustes:
+  segundos_para_responder: 90
+  grupos_por_defecto: 5
+  # Cuántas rondas como máximo. Con 7, un grupo que acierta todo llega justo.
+  rondas: 7
+  # true = cuando responden todos los grupos, pasa solo a la revelación
+  pasar_solo_si_respondieron_todos: true
+  # true = la frase "para decir" aparece en el proyector · false = no aparece
+  mostrar_para_decir_en_proyector: true
+
+casilleros:
+
+  # ---------------------------------------------------------
+  #  TRAMO COMÚN
+  # ---------------------------------------------------------
+  - numero: 0
+    carril: común
+    nombre: Salida
+    preguntas:
+      - pregunta: ¿Dónde y cuándo nace TECHO?
+        opciones:
+          - Argentina, 2003
+          - Chile, 1997
+          - Uruguay, 2001
+        correcta: 2
+        para_decir: Lo arrancó un grupo de jóvenes que vio la pobreza en la que vivían miles de personas.
+
+      - pregunta: ¿Cómo se llamaba TECHO antes de 2012?
+        opciones:
+          - Techo Argentina
+          - Un Techo para mi País
+          - Casas para Todos
+        correcta: 2
+        para_decir: Cambió el nombre, pero no el propósito.
+
+      - pregunta: ¿En cuántos países de América Latina y el Caribe está TECHO?
+        opciones:
+          - '7'
+          - '12'
+          - '19'
+        correcta: 3
+        para_decir: Somos parte de algo mucho más grande que nuestra sede.
+
+      - pregunta: ¿Cuántos valores tiene TECHO?
+        opciones:
+          - '3'
+          - '5'
+          - '7'
+        correcta: 2
+        para_decir: Solidaridad, convicción, diversidad, excelencia y optimismo.
+
+      - pregunta: 'Completá la misión: "…superar la pobreza a través de la formación y acción ______ de sus pobladores, jóvenes voluntarios y otros actores."'
+        opciones:
+          - solidaria
+          - conjunta
+          - voluntaria
+        correcta: 2
+        para_decir: Esta palabra es la clave de todo lo que viene.
+
+  - numero: 1
+    carril: común
+    nombre: Inicio
+    preguntas:
+      - pregunta: ¿Quién decide que TECHO empiece a trabajar en un barrio?
+        opciones:
+          - TECHO solo
+          - El municipio
+          - TECHO lo propone y los vecinos lo validan
+        correcta: 3
+        para_decir: Se hace una asamblea de inicio con los vecinos.
+
+      - pregunta: 'Verdadero o falso: "Antes de empezar, TECHO tiene que decirle al barrio qué puede hacer y qué no."'
+        opciones:
+          - Verdadero
+          - Falso
+        correcta: 1
+        para_decir: Prometer de más rompe la confianza.
+
+      # REVISAR: el dato es del relevamiento 2017
+      - pregunta: ¿Quién hizo en 2017 el primer relevamiento nacional de barrios populares?
+        opciones:
+          - El INDEC
+          - TECHO junto con otras organizaciones sociales
+          - Una universidad
+        correcta: 2
+        para_decir: Antes de eso, el Estado no sabía cuántos barrios populares había.
+
+  # ---------------------------------------------------------
+  #  CARRIL DE LA MESA (grupos impares)
+  # ---------------------------------------------------------
+  - numero: 2
+    carril: mesa
+    nombre: Diagnóstico
+    preguntas:
+      - pregunta: ¿Qué es el diagnóstico participativo?
+        opciones:
+          - Un informe que arma la oficina
+          - Asambleas donde vecinos y voluntarios identifican qué quieren transformar
+          - Una encuesta online
+        correcta: 2
+        para_decir: El barrio se conoce mejor desde adentro.
+
+      - pregunta: ¿Para qué sirve la encuesta de comunidad?
+        opciones:
+          - Para conocer el barrio y después comparar qué cambió
+          - Para elegir a quién darle casa
+          - Para controlar a los vecinos
+        correcta: 1
+        para_decir: Sin una foto del principio, no sabemos qué cambió.
+
+      # REVISAR: el dato es del relevamiento 2017; conviene el número actualizado
+      - pregunta: De los barrios populares relevados, ¿cuántos NO tienen acceso formal a cloacas?
+        opciones:
+          - 1 de cada 4
+          - La mitad
+          - Casi todos
+        correcta: 3
+        para_decir: Por eso la casa es solo una parte del problema.
+
+  - numero: 3
+    carril: mesa
+    nombre: Mesa de trabajo
+    preguntas:
+      - pregunta: ¿Quiénes participan en la mesa de trabajo?
+        opciones:
+          - Solo voluntarios
+          - Voluntarios y vecinos
+          - Referentes y la municipalidad
+        correcta: 2
+        para_decir: La mesa es de los dos lados.
+
+      - pregunta: ¿Cada cuánto se reúne la mesa?
+        opciones:
+          - Una vez y listo
+          - De forma periódica y sostenida
+          - Solo cuando hay construcción
+        correcta: 2
+        para_decir: Lo que la sostiene es la constancia.
+
+      - pregunta: 'Verdadero o falso: "La mesa es solo para organizar obras."'
+        opciones:
+          - Verdadero
+          - Falso
+        correcta: 2
+        para_decir: También es un espacio de educación popular, donde todos enseñan y aprenden.
+
+  - numero: 4
+    carril: mesa
+    nombre: ¡Trampa!
+    trampa: true
+    retroceden: 2
+    preguntas:
+      - pregunta: '"Somos los que más saben, así que decidimos nosotros qué necesita el barrio." ¿Es verdad?'
+        opciones:
+          - Sí, es verdad
+          - No, es una trampa
+        correcta: 2
+        para_decir: Se decide en conjunto y sobre los intereses de la comunidad.
+
+      # NUEVA: revisar
+      - pregunta: '"Si en la mesa los vecinos no hablan, decidimos los voluntarios para no perder tiempo." ¿Es verdad?'
+        opciones:
+          - Sí, es verdad
+          - No, es una trampa
+        correcta: 2
+        para_decir: Si nadie habla, la tarea es abrir la palabra, no ocuparla.
+
+  - numero: 5
+    carril: mesa
+    nombre: Plan de acción
+    preguntas:
+      - pregunta: ¿Qué sale de la mesa después del diagnóstico?
+        opciones:
+          - Una lista de casas
+          - Un plan de acción con tareas, tiempos y responsables
+          - Un informe para oficina
+        correcta: 2
+        para_decir: Así la canchita, las farolas o lo que elija el barrio pasan de idea a proyecto.
+
+      - pregunta: 'Verdadero o falso: "El plan de acción lo arma TECHO y se lo presenta a los vecinos para que lo aprueben."'
+        opciones:
+          - Verdadero
+          - Falso
+        correcta: 2
+        para_decir: Se arma en conjunto.
+
+      # PUENTE con el carril de la casa · REVISAR según cómo es en BA Sur
+      - pregunta: Una familia construyó su casa el mes pasado. ¿Puede sumarse a la mesa?
+        opciones:
+          - No, la mesa es para otros vecinos
+          - Sí, la mesa está abierta a los vecinos del barrio
+          - Solo si TECHO la invita
+        correcta: 2
+        para_decir: La casa y la mesa son dos caminos del mismo trabajo.
+
+  # ---------------------------------------------------------
+  #  CARRIL DE LA CASA (grupos pares)
+  # ---------------------------------------------------------
+  - numero: 2
+    carril: casa
+    nombre: Encuesta
+    preguntas:
+      # REVISAR según cómo es en BA Sur
+      - pregunta: ¿Para qué se encuesta a las familias antes de construir?
+        opciones:
+          - Para conocer su situación y priorizar con criterios claros
+          - Para elegir a las más simpáticas
+          - Para la foto del Instagram
+        correcta: 1
+        para_decir: Conocer antes de decidir.
+
+      - pregunta: 'Verdadero o falso: "Las familias tienen que saber con qué criterios se decide quién construye."'
+        opciones:
+          - Verdadero
+          - Falso
+        correcta: 1
+        para_decir: Es el principio de transparencia.
+
+  - numero: 3
+    carril: casa
+    nombre: Planificación
+    preguntas:
+      - pregunta: ¿Qué principio de TECHO dice que la familia y los voluntarios comparten la responsabilidad del trabajo?
+        opciones:
+          - Masividad
+          - Corresponsabilidad
+          - Sostenibilidad
+        correcta: 2
+        para_decir: La casa es de la familia desde el primer día.
+
+      - pregunta: 'Verdadero o falso: "La familia recién participa el día de la construcción."'
+        opciones:
+          - Verdadero
+          - Falso
+        correcta: 2
+        para_decir: Participa desde la planificación.
+
+      # PUENTE con el carril de la mesa · REVISAR según cómo es en BA Sur
+      - pregunta: ¿Qué tienen en común la mesa y la construcción?
+        opciones:
+          - Nada, son áreas separadas
+          - En las dos se decide y se hace con los vecinos, no por ellos
+          - Las dos las organiza la oficina
+        correcta: 2
+        para_decir: Son dos caminos que salen del mismo lugar y llegan al mismo lugar.
+
+  - numero: 4
+    carril: casa
+    nombre: Construcción
+    preguntas:
+      - pregunta: ¿Quién construye la casa?
+        opciones:
+          - Los voluntarios
+          - Una empresa
+          - La familia y los voluntarios juntos
+        correcta: 3
+        para_decir: La casa se construye con la familia, no para la familia.
+
+      - pregunta: La casa es "de emergencia", entonces…
+        opciones:
+          - Se puede hacer rápido y como salga
+          - Tiene que ser de calidad y proteger del frío, la lluvia y la humedad
+          - La termina la familia después
+        correcta: 2
+        para_decir: Es el valor de la excelencia.
+
+      - pregunta: ¿Cómo nos referimos a la familia?
+        opciones:
+          - Por su nombre
+          - '"Los beneficiarios"'
+          - '"Los de la casa 3"'
+        correcta: 1
+        para_decir: Cada familia tiene nombre e historia.
+
+      - pregunta: ¿Cuál es la regla para los chistes en el barrio?
+        opciones:
+          - Si no lo dirías en la ronda con la familia, no lo digas
+          - Todo vale si es entre voluntarios
+          - Los chistes internos unen al grupo
+        correcta: 1
+        para_decir: El respeto también se nota en lo que decimos cuando creemos que nadie escucha.
+
+      - pregunta: Antes de sacarle una foto a la familia o a su casa…
+        opciones:
+          - Se pide permiso
+          - Se saca y se sube igual
+          - Se saca pero sin etiquetar
+        correcta: 1
+        para_decir: La imagen de la familia es de la familia.
+
+  - numero: 5
+    carril: casa
+    nombre: ¡Trampa!
+    trampa: true
+    retroceden: 3
+    preguntas:
+      - pregunta: '"Terminamos la casa y nos vamos." ¿Es verdad?'
+        opciones:
+          - Sí, es verdad
+          - No, es una trampa
+        correcta: 2
+        para_decir: Después de la construcción hay seguimiento con la familia.
+
+      # NUEVA: revisar
+      - pregunta: '"Si la familia no puede estar el día de la construcción, la hacemos igual sin ella." ¿Es verdad?'
+        opciones:
+          - Sí, es verdad
+          - No, es una trampa
+        correcta: 2
+        para_decir: Sin la familia no hay corresponsabilidad.
+
+  # ---------------------------------------------------------
+  #  TRAMO COMÚN FINAL
+  # ---------------------------------------------------------
+  - numero: 6
+    carril: común
+    nombre: Evaluación
+    preguntas:
+      - pregunta: ¿Cuándo se va TECHO de un barrio?
+        opciones:
+          - Cuando termina la última casa
+          - Cuando se acaba la plata
+          - Cuando la comunidad puede organizarse sola y TECHO pasa a ser una red más
+        correcta: 3
+        para_decir: El objetivo es que el barrio no nos necesite.
+
+      - pregunta: 'Verdadero o falso: "El trabajo es una línea recta: empieza, se construye y termina."'
+        opciones:
+          - Verdadero
+          - Falso
+        correcta: 2
+        para_decir: Es un ciclo que puede volver a empezar.
+
+      - pregunta: En el mapa de la sede hay barrios en gris donde TECHO ya no va. ¿Por qué puede pasar?
+        opciones:
+          - Porque la comunidad ya se organiza sola
+          - Porque se evaluó y se decidió cerrar el trabajo
+          - Las dos pueden pasar
+        correcta: 3
+        para_decir: Esto lo charlamos en el plenario.
+
+  - numero: 7
+    carril: común
+    nombre: Llegada
+    # La llegada no tiene preguntas: llegaron y se celebra.

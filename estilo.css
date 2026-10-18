@@ -1,0 +1,35 @@
+@font-face{font-family:'Fredoka One';src:url(/fuentes/fredoka/fredoka-one-latin-400-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:'Montserrat';font-weight:500;src:url(/fuentes/montserrat/montserrat-latin-500-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:'Montserrat';font-weight:600;src:url(/fuentes/montserrat/montserrat-latin-600-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:'Montserrat';font-weight:700;src:url(/fuentes/montserrat/montserrat-latin-700-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:'Montserrat';font-weight:800;src:url(/fuentes/montserrat/montserrat-latin-800-normal.woff2) format('woff2');font-display:swap}
+
+:root{
+  --azul:#0092DD;--azul-osc:#006ea8;--navy:#231837;--tinta:#2A2A33;--gris:#6E7683;--pizarra:#8AA6BC;
+  --amarillo:#FDC533;--amarillo-osc:#d49d12;--rosa:#F088B6;--verde:#2FAC66;--verde-osc:#1d7f48;
+  --fondo:#ECF4F9;--blanco:#fff;
+  --titulo:'Fredoka One',system-ui,sans-serif;--texto:'Montserrat',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--texto);color:var(--tinta);background:var(--fondo);-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;border:0;-webkit-tap-highlight-color:transparent}
+.oculto{display:none!important}
+
+/* botones con relieve */
+.btn{font-weight:700;border-radius:16px;padding:.8em 1.3em;background:#fff;color:var(--navy);box-shadow:0 6px 0 #b9cfe0;transition:transform .08s,box-shadow .08s;display:inline-flex;align-items:center;gap:.5em}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #b9cfe0}
+.btn.amarillo{background:var(--amarillo);box-shadow:0 6px 0 var(--amarillo-osc)}
+.btn.amarillo:active{box-shadow:0 2px 0 var(--amarillo-osc)}
+.btn.verde{background:var(--verde);color:#fff;box-shadow:0 6px 0 var(--verde-osc)}
+.btn.verde:active{box-shadow:0 2px 0 var(--verde-osc)}
+.btn.navy{background:var(--navy);color:#fff;box-shadow:0 6px 0 #0f0919}
+.btn.navy:active{box-shadow:0 2px 0 #0f0919}
+.btn:disabled{opacity:.45;cursor:default}
+
+.dot{border-radius:50%;display:grid;place-items:center;color:#fff;font-family:var(--titulo);box-shadow:inset -.25em -.3em 0 rgba(0,0,0,.18);flex:none}
+.dot.oscuro{color:var(--navy)}
+
+.ficha{transition:transform .45s cubic-bezier(.3,.7,.4,1)}
+.salto.hop{animation:hop .45s ease-out}
+@keyframes hop{0%{transform:translateY(0)}40%{transform:translateY(-38px)}75%{transform:translateY(2px)}100%{transform:translateY(0)}}

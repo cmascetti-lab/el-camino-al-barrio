@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>El camino al barrio · Proyector</title>
+<link rel="icon" href="/icono.svg">
+<link rel="stylesheet" href="/estilo.css">
+<link rel="stylesheet" href="/proyector.css">
+</head>
+<body>
+<div class="escenario" id="escenario">
+  <div class="hud">
+    <div class="ronda" id="ronda"><small>RONDA</small><span>—</span></div>
+    <div class="reloj" id="reloj">
+      <div class="anillo" id="anillo">
+        <svg viewBox="0 0 118 118"><circle cx="59" cy="59" r="56" fill="#fff"/><circle cx="59" cy="59" r="46" fill="none" stroke="#e5eef5" stroke-width="12"/><circle id="arco" cx="59" cy="59" r="46" fill="none" stroke="#FDC533" stroke-width="12" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="0" transform="rotate(-90 59 59)"/></svg>
+        <b id="segundos">1:30</b>
+      </div>
+      <div class="respondieron" id="respondieron"></div>
+    </div>
+    <div class="acciones" id="acciones"></div>
+  </div>
+
+  <div class="tablero-wrap" id="tableroWrap"><div class="tablero-3d" id="tablero3d"><svg id="tablero"></svg></div></div>
+  <div class="chips" id="chips"></div>
+
+  <div class="banner oculto" id="banner"></div>
+  <div class="panel" id="panel"></div>
+
+  <div class="lobby oculto" id="lobby">
+    <div>
+      <div class="marca">TECHO</div>
+      <div class="eyebrow">ENCUENTRO · ¿PARA QUÉ VAMOS AL BARRIO?</div>
+      <h1>El camino al barrio</h1>
+      <div class="pasos">
+        <div class="paso"><b>1</b>Un celu por grupo escanea el QR</div>
+        <div class="paso"><b>2</b>Eligen su número de grupo</div>
+      </div>
+      <div class="cantidad">Grupos
+        <button class="btn" id="menos">−</button><span class="valor" id="cantidad">5</span><button class="btn" id="mas">+</button>
+      </div>
+      <div class="slots" id="slots"></div>
+      <button class="btn amarillo empezar" id="empezar">Empezar el juego ▶</button>
+    </div>
+    <div class="qr">
+      <img src="/qr.svg" alt="Código QR para entrar al juego">
+      <div class="url" id="url"></div>
+      <div class="ayuda">o entren a esta dirección</div>
+    </div>
+  </div>
+
+  <div class="menu"><div class="menu-items oculto" id="menuItems"><button class="btn" id="btnTerminar">Terminar juego</button><button class="btn" id="btnReiniciar">Volver a empezar</button></div><button class="btn" id="btnMenu">⋯</button></div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/tablero.js"></script>
+<script src="/proyector.js"></script>
+</body>
+</html>
